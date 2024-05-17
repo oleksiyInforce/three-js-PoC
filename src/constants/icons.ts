@@ -12,6 +12,7 @@ import playHover from "assets/icons/play-hover.svg";
 import burgerClose from "assets/icons/burger-close.svg";
 import burgerOpen from "assets/icons/burger-open.svg";
 import hexagon from "assets/icons/hexagon.svg";
+import polygon from "assets/icons/polygon.png";
 
 import ffwLogoBig from "assets/images/ffw-logo-big.svg";
 import revueltoLogo from "assets/images/revuelto-logo.png";
@@ -29,6 +30,10 @@ import userPic from "assets/icons/header/user-pic.png";
 import logOut from "assets/icons/header/log-out.svg";
 import roblox from "assets/icons/header/roblox.svg";
 
+import discordFooter from "assets/icons/footer/discord-footer.svg";
+import messageFooter from "assets/icons/footer/message-footer.svg";
+import videoFooter from "assets/icons/footer/video-footer.svg";
+
 export const ICON_MAP = {
   check,
   ffw,
@@ -44,6 +49,7 @@ export const ICON_MAP = {
   burgerClose,
   burgerOpen,
   hexagon,
+  polygon,
 
   ffwLogoBig,
   revueltoLogo,
@@ -60,6 +66,10 @@ export const ICON_MAP = {
   share,
   userPic,
   logOut,
+
+  discordFooter,
+  messageFooter,
+  videoFooter,
 };
 
 export type TIcon = keyof typeof ICON_MAP;

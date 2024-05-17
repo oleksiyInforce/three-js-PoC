@@ -3,7 +3,7 @@ import styled, { DefaultTheme, css } from "styled-components";
 type TSizes = "sm" | "default" | "large";
 
 interface IButtonProps {
-  variant?: "primary" | "outline" | "secondary";
+  variant?: "primary" | "outline" | "secondary" | "dark";
   mw?: string;
   size?: TSizes;
   disabled?: boolean;
@@ -38,6 +38,16 @@ const buttonVariants = (theme: DefaultTheme) => ({
 
     &:hover {
       background-color: ${theme.color["accent-100"]};
+    }
+  `,
+
+  dark: css`
+    color: ${theme.color.white};
+    background-color: ${theme.color.dark};
+
+    &:hover {
+      background-color: ${theme.color["accent-100"]};
+      color: ${theme.color.primary};
     }
   `,
 });

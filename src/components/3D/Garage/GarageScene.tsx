@@ -18,10 +18,12 @@ import { LoaderComponent } from "../Loader/Loader";
 
 import { GarageSceneStyled } from "./GarageScene.styled";
 import { GarageFooter } from "./Footer/Footer";
+import { Info } from "./Overlay/Info/Info";
+import { IMAGES_MAP } from "constants/images";
+import { Wallet } from "./Overlay/Wallet/Wallet";
 
 const importModels = async () => {
   const context = import.meta.glob("./Models/*.tsx"); // Adjust file extension based on your file types
-  console.log(context);
   const keys = Object.keys(context);
   const modelComponents = await Promise.all(
     keys.map(async (key) => {
@@ -63,7 +65,6 @@ const GarageScene = () => {
   const renderCurrentModel = () => {
     if (models.length > 0) {
       const ModelComponent = models[currentModelIndex];
-      console.log(models);
       return <ModelComponent position={modelCenter} />;
     }
     return null;
@@ -71,7 +72,13 @@ const GarageScene = () => {
 
   return (
     <GarageSceneStyled.Container>
-      <GarageFooter models={models} switchCar={switchModel} />
+      <GarageFooter
+        models={models}
+        switchCar={switchModel}
+        selectedIndex={currentModelIndex}
+      />
+      <Wallet src={IMAGES_MAP["wallet"]} />
+      <Info src={IMAGES_MAP["revueltoInfo"]} />
       <Suspense fallback={<div>LOADING...</div>}>
         <Canvas
           className="absolute sticky"
