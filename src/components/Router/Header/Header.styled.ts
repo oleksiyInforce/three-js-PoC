@@ -36,9 +36,12 @@ export const HeaderStyled = {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 32px;
-    padding-bottom: 32px;
     position: relative;
+  `,
+  Right: styled.div`
+    display: flex;
+    align-items: center;
+    gap: 40px;
   `,
   Icons: styled.div`
     display: flex;
@@ -82,7 +85,10 @@ export const HeaderStyled = {
     padding: 12px 32px;
   `,
   Spacing: styled.div`
-    height: 108px;
+    height: 112px;
     width: 100%;
+  `,
+  Section: styled.div`
+    display: flex;
   `,
 };

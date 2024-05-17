@@ -10,11 +10,14 @@ import {
   OrbitControls,
   PerspectiveCamera,
   RandomizedLight,
-  Stats,
+  Lightformer,
 } from "@react-three/drei";
 import * as THREE from "three";
 import { Suspense, useEffect, useState } from "react";
-import { LoaderComponent } from "./Loader/Loader";
+import { LoaderComponent } from "../Loader/Loader";
+
+import { GarageSceneStyled } from "./GarageScene.styled";
+import { GarageFooter } from "./Footer/Footer";
 
 const importModels = async () => {
   const context = import.meta.glob("./Models/*.tsx"); // Adjust file extension based on your file types
@@ -32,15 +35,12 @@ const importModels = async () => {
 const GarageScene = () => {
   const [models, setModels] = useState([]);
   const [currentModelIndex, setCurrentModelIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Load all model components from the 'Models' folder
     importModels()
       .then((modelComponents) => {
         setModels(modelComponents);
-        setIsLoading(false);
-        console.log(modelComponents);
       })
       .catch((error) => {
         console.error("Error loading models:", error);
@@ -70,19 +70,15 @@ const GarageScene = () => {
   };
 
   return (
-    <div
-      id="canvas-container"
-      className="w-full h-full canvas-container bg-white bg-opacity-70"
-      style={{ height: "100vh" }}
-    >
-      {isLoading ? (
-        <div className="loading-indicator">Loading models...</div>
-      ) : (
+    <GarageSceneStyled.Container>
+      <GarageFooter models={models} switchCar={switchModel} />
+      <Suspense fallback={<div>LOADING...</div>}>
         <Canvas
           className="absolute sticky"
           shadows
           camera={{ position: [200, 0, 20], fov: 35 }}
         >
+          <ambientLight intensity={1} />
           <Suspense fallback={<LoaderComponent />}>
             <group position={[0, 0, 0]} scale={[10, 10, 10]}>
               <Center>{renderCurrentModel()}</Center>
@@ -90,42 +86,53 @@ const GarageScene = () => {
                 <RandomizedLight position={[2, 5, 5]} />
               </AccumulativeShadows>
             </group>
-            <OrbitControls
-              enableZoom={false}
-              enablePan={false}
-              minPolarAngle={0}
-              maxPolarAngle={Math.PI / 2.25}
-              makeDefault
-            />
-            <Stats />
-            <PerspectiveCamera
-              makeDefault
-              position={[modelCenter.x + 45, modelCenter.y, modelCenter.z + 10]}
-              fov={80}
-            />
-            <Effects importanceSampling={true} />
-            <Environment
-              files="/buikslotermeerplein_2k.hdr"
-              position={[0, 5, 0]}
-              ground={{ height: 35, radius: 100, scale: 200 }}
-            />
-            <ContactShadows
-              smooth={false}
-              scale={150}
-              position={[0, -5.05, 0]}
-              blur={0.5}
-              opacity={0.75}
-            />
-            <CameraControls
-              makeDefault
-              dollyToCursor
-              minPolarAngle={0}
-              maxPolarAngle={Math.PI / 2}
-            />
           </Suspense>
+
+          <OrbitControls
+            enableZoom={false}
+            enablePan={false}
+            minPolarAngle={0}
+            maxPolarAngle={Math.PI / 2.25}
+            makeDefault
+          />
+          <PerspectiveCamera
+            makeDefault
+            position={[
+              modelCenter.x - 30,
+              modelCenter.y - 10,
+              modelCenter.z - 30,
+            ]}
+            fov={60}
+          >
+            <spotLight
+              position={[0, 40, 2]}
+              angle={0.5}
+              decay={1.2}
+              distance={200}
+              penumbra={1}
+              intensity={300}
+            />
+          </PerspectiveCamera>
+          <mesh scale={100}>
+            <sphereGeometry />
+            <meshStandardMaterial
+              color="#000000"
+              roughness={0.8}
+              side={THREE.BackSide}
+            />
+          </mesh>
+          <Effects importanceSampling={true} />
+          <ContactShadows
+            smooth={false}
+            scale={200}
+            position={[0, -4.5, 0]}
+            blur={0.7}
+            opacity={2}
+          />
+          <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/blue_lagoon_night_1k.hdr" />
         </Canvas>
-      )}
-    </div>
+      </Suspense>
+    </GarageSceneStyled.Container>
   );
 };
 

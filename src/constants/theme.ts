@@ -3,6 +3,7 @@ import { reset } from "constants/reset";
 import { normalize } from "constants/normalize";
 
 const FONT_SIZE = {
+  xxs: "12px",
   xs: "14px",
   sm: "16px",
   md: "32px",
@@ -31,6 +32,7 @@ const COLOR = {
   white: "#ffffff",
   muted: "#BCBCBC",
   red: "#FF0000",
+  dark: "#333333",
 
   "accent-100": "#FFC000",
   "accent-200": "#e5ad00",

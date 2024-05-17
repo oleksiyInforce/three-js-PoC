@@ -17,6 +17,18 @@ import ffwLogoBig from "assets/images/ffw-logo-big.svg";
 import revueltoLogo from "assets/images/revuelto-logo.png";
 import gtLogo from "assets/images/gt-logo.svg";
 
+import epic from "assets/icons/header/epic.svg";
+import motorverse from "assets/icons/header/motorverse.svg";
+import storefront from "assets/icons/header/storefront.svg";
+import garage from "assets/icons/header/garage.svg";
+import immersive from "assets/icons/header/immersive.svg";
+import ste from "assets/icons/header/ste.png";
+import bell from "assets/icons/header/bell.svg";
+import share from "assets/icons/header/share.svg";
+import userPic from "assets/icons/header/user-pic.png";
+import logOut from "assets/icons/header/log-out.svg";
+import roblox from "assets/icons/header/roblox.svg";
+
 export const ICON_MAP = {
   check,
   ffw,
@@ -36,6 +48,18 @@ export const ICON_MAP = {
   ffwLogoBig,
   revueltoLogo,
   gtLogo,
+
+  epic,
+  motorverse,
+  storefront,
+  garage,
+  immersive,
+  ste,
+  roblox,
+  bell,
+  share,
+  userPic,
+  logOut,
 };
 
 export type TIcon = keyof typeof ICON_MAP;
