@@ -9,7 +9,7 @@ export const GarageEnvironment = () => {
   myTexture.colorSpace = "srgb";
 
   return (
-    <mesh scale={80}>
+    <mesh scale={200}>
       <sphereGeometry />
       <meshPhysicalMaterial
         map={myTexture}
