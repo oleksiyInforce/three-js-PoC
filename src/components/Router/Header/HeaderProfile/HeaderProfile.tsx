@@ -34,7 +34,7 @@ export const HeaderProfile: React.FC = () => {
         fontWeight={"bold"}
         fontStyle={"italic"}
       >
-        #Garage63
+        #Homebase63
       </Typography>
       <Divider size={24} gap={8} />
 
