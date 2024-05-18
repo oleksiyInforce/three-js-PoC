@@ -6,6 +6,11 @@ export const HeaderProfileStyled = {
     display: flex;
     align-items: center;
     gap: 14px;
+
+    @media screen and (max-width: 1440px) {
+      gap: 8px;
+      margin-left: 20px;
+    }
   `,
   Button: styled(Button)`
     padding: 8px 18px;

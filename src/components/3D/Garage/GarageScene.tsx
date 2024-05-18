@@ -11,6 +11,7 @@ import {
   PerspectiveCamera,
   RandomizedLight,
   Lightformer,
+  useTexture,
 } from "@react-three/drei";
 import * as THREE from "three";
 import { Suspense, useEffect, useState } from "react";
@@ -21,6 +22,7 @@ import { GarageFooter } from "./Footer/Footer";
 import { Info } from "./Overlay/Info/Info";
 import { IMAGES_MAP } from "constants/images";
 import { Wallet } from "./Overlay/Wallet/Wallet";
+import { GarageEnvironment } from "./Environment/Environment";
 
 const importModels = async () => {
   const context = import.meta.glob("./Models/*.tsx"); // Adjust file extension based on your file types
@@ -85,7 +87,7 @@ const GarageScene = () => {
           shadows
           camera={{ position: [200, 0, 20], fov: 35 }}
         >
-          <ambientLight intensity={1} />
+          <ambientLight intensity={2} />
           <Suspense fallback={<LoaderComponent />}>
             <group position={[0, 0, 0]} scale={[10, 10, 10]}>
               <Center>{renderCurrentModel()}</Center>
@@ -120,14 +122,7 @@ const GarageScene = () => {
               intensity={300}
             />
           </PerspectiveCamera>
-          <mesh scale={100}>
-            <sphereGeometry />
-            <meshStandardMaterial
-              color="#000000"
-              roughness={0.8}
-              side={THREE.BackSide}
-            />
-          </mesh>
+          <GarageEnvironment />
           <Effects importanceSampling={true} />
           <ContactShadows
             smooth={false}

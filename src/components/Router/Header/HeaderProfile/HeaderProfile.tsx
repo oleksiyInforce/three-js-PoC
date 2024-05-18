@@ -5,7 +5,6 @@ import { ICON_MAP } from "constants/icons";
 import { Typography } from "components/ui/Typography/Typography";
 import { Divider } from "components/ui/Divider/Divider";
 import { Icon } from "components/ui/Icon/Icon";
-import { Button } from "components/ui/Button/Button";
 
 export const HeaderProfile: React.FC = () => {
   return (
@@ -21,7 +20,7 @@ export const HeaderProfile: React.FC = () => {
           darkewards
         </Typography>
         <Typography
-          fontSize={"input"}
+          fontSize={"sm"}
           fontFamily={"condensed"}
           fontWeight={"black"}
         >
@@ -30,7 +29,7 @@ export const HeaderProfile: React.FC = () => {
       </Styled.Profile>
       <Divider size={24} gap={8} />
       <Typography
-        fontSize={"input"}
+        fontSize={"sm"}
         fontFamily={"condensed"}
         fontWeight={"bold"}
         fontStyle={"italic"}

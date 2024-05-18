@@ -5,7 +5,7 @@ export const NavigationItemStyled = {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px 24px;
+    padding: 14px 24px;
 
     background-color: ${({ theme, $color }) =>
       $color ? theme.color["accent-100"] : theme.color.dark};
@@ -17,6 +17,14 @@ export const NavigationItemStyled = {
     &:hover {
       background-color: ${({ theme, $color }) =>
         $color ? theme.color["accent-300"] : theme.color["accent-300"]};
+    }
+
+    > div {
+      transform: skewX(30deg);
+
+      img {
+        transform: skewX(0);
+      }
     }
 
     img {

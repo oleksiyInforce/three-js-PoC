@@ -90,5 +90,7 @@ export const HeaderStyled = {
   `,
   Section: styled.div`
     display: flex;
+    align-items: center;
+    height: 36px;
   `,
 };
