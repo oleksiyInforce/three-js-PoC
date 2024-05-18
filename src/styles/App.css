@@ -1,0 +1,86 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lambotype";
+  src: url("../assets/fonts/Lambotype/Lambotype-Regular.woff") format("woff"),
+    url("../assets/fonts/Lambotype/Lambotype-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lambotype";
+  src: url("../assets/fonts/Lambotype/Lambotype-Light.woff") format("woff"),
+    url("../assets/fonts/Lambotype/Lambotype-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lambotype";
+  src: url("../assets/fonts/Lambotype/Lambotype-Bold.woff") format("woff"),
+    url("../assets/fonts/Lambotype/Lambotype-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lambotype";
+  src: url("../assets/fonts/Lambotype/Lambotype-Black.woff") format("woff"),
+    url("../assets/fonts/Lambotype/Lambotype-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lambotype";
+  src: url("../assets/fonts/Lambotype/Lambotype-BlackItalic.woff")
+      format("woff"),
+    url("../assets/fonts/Lambotype/Lambotype-BlackItalic.woff2") format("woff2");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Lambotype Cnd";
+  src: url("../assets/fonts/Lambotype/LambotypeCnd-Black.woff") format("woff"),
+    url("../assets/fonts/Lambotype/LambotypeCnd-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lambotype Cnd";
+  src: url("../assets/fonts/Lambotype/LambotypeCnd-Bold.woff") format("woff"),
+    url("../assets/fonts/Lambotype/LambotypeCnd-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lambotype Cnd";
+  src: url("../assets/fonts/Lambotype/LambotypeCnd-Light.woff") format("woff"),
+    url("../assets/fonts/Lambotype/LambotypeCnd-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lambotype Cnd";
+  src: url("../assets/fonts/Lambotype/LambotypeCnd-Regular.woff") format("woff"),
+    url("../assets/fonts/Lambotype/LambotypeCnd-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Actor";
+  src: url("../assets/fonts/Actor/Actor-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
