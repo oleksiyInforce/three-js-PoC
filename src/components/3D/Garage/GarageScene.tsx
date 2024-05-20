@@ -122,16 +122,20 @@ const GarageScene = () => {
               intensity={300}
             />
           </PerspectiveCamera>
-          <GarageEnvironment />
+          {/* <GarageEnvironment /> */}
           <Effects importanceSampling={true} />
           <ContactShadows
             smooth={false}
             scale={200}
             position={[0, -4.5, 0]}
             blur={0.7}
-            opacity={2}
+            opacity={1.2}
           />
-          <Environment files="https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/blue_lagoon_night_1k.hdr" />
+          <Environment
+            files="/scene.hdr"
+            position={[0, 4, 0]}
+            ground={{ height: 35, radius: 100, scale: 150 }}
+          />
         </Canvas>
       </Suspense>
     </GarageSceneStyled.Container>

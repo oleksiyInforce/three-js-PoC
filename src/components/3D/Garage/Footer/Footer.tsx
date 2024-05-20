@@ -58,7 +58,7 @@ export const GarageFooter: React.FC<IFooterProps> = ({
                         color={selectedIndex === 0 ? "white" : "accent-100"}
                         onClick={handleClick}
                       >
-                        Huracan STO
+                        Revuelto Squadra Corse
                       </Typography>
                     </Styled.CarWrapper>
                   </>
