@@ -33,6 +33,7 @@ const COLOR = {
   muted: "#BCBCBC",
   red: "#FF0000",
   dark: "#333333",
+  foreground: "#121212",
 
   "accent-100": "#FFC000",
   "accent-200": "#e5ad00",
@@ -66,6 +67,19 @@ export const theme = {
   borderRadius: BORDER_RADIUS,
   color: COLOR,
 };
+
+export type TColor = keyof typeof COLOR;
+export type TFontSize = keyof typeof FONT_SIZE;
+export type TFontWeight = keyof typeof FONT_WEIGHT;
+export type TBorderRadius = keyof typeof BORDER_RADIUS;
+export type TFontFamily = keyof typeof FONT_FAMILY;
+
+export type TGradient = {
+  from: string;
+  to: string;
+};
+
+export type TTheme = typeof theme;
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}

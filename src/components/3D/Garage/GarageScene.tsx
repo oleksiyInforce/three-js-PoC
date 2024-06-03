@@ -2,7 +2,6 @@
 import { Canvas } from "@react-three/fiber";
 import {
   AccumulativeShadows,
-  CameraControls,
   Center,
   ContactShadows,
   Effects,
@@ -10,11 +9,9 @@ import {
   OrbitControls,
   PerspectiveCamera,
   RandomizedLight,
-  Lightformer,
-  useTexture,
 } from "@react-three/drei";
 import * as THREE from "three";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useState } from "react";
 import { LoaderComponent } from "../Loader/Loader";
 
 import { GarageSceneStyled } from "./GarageScene.styled";
@@ -22,55 +19,32 @@ import { GarageFooter } from "./Footer/Footer";
 import { Info } from "./Overlay/Info/Info";
 import { IMAGES_MAP } from "constants/images";
 import { Wallet } from "./Overlay/Wallet/Wallet";
-import { GarageEnvironment } from "./Environment/Environment";
+import CarModel from "./Models/CarModel";
 
-const importModels = async () => {
-  const context = import.meta.glob("./Models/*.tsx"); // Adjust file extension based on your file types
-  const keys = Object.keys(context);
-  const modelComponents = await Promise.all(
-    keys.map(async (key) => {
-      const module = await context[key]();
-      return module.default;
-    })
-  );
-  return modelComponents;
-};
+const models = [
+  {
+    src: "/3D/LAMBORGHINI_REVUELTO4.glb",
+    name: "Revuelto",
+  },
+];
 
 const GarageScene = () => {
-  const [models, setModels] = useState([]);
   const [currentModelIndex, setCurrentModelIndex] = useState(0);
 
-  useEffect(() => {
-    // Load all model components from the 'Models' folder
-    importModels()
-      .then((modelComponents) => {
-        setModels(modelComponents);
-      })
-      .catch((error) => {
-        console.error("Error loading models:", error);
-      });
-  }, []);
-
   const switchModel = (direction) => {
-    if (models.length > 1) {
-      let newIndex;
-      if (direction === "forward") {
-        newIndex = (currentModelIndex + 1) % models.length;
-      } else if (direction === "backward") {
-        newIndex = (currentModelIndex - 1 + models.length) % models.length;
-      }
-      setCurrentModelIndex(newIndex);
-    }
+    setCurrentModelIndex((cur) => (cur === 0 ? 1 : 0));
   };
   const modelCenter = new THREE.Vector3();
 
-  const renderCurrentModel = () => {
-    if (models.length > 0) {
-      const ModelComponent = models[currentModelIndex];
-      return <ModelComponent position={modelCenter} />;
-    }
-    return null;
-  };
+  const renderCurrentModel = () =>
+    models.map((model, index) => (
+      <CarModel
+        key={index}
+        src={model.src}
+        position={[0, 0, 0]}
+        visible={currentModelIndex === index}
+      />
+    ));
 
   return (
     <GarageSceneStyled.Container>
@@ -80,6 +54,7 @@ const GarageScene = () => {
         selectedIndex={currentModelIndex}
       />
       <Wallet src={IMAGES_MAP["wallet"]} />
+      {/* <WalletComponent /> */}
       <Info src={IMAGES_MAP["revueltoInfo"]} />
       <Suspense fallback={<div>LOADING...</div>}>
         <Canvas
@@ -120,6 +95,7 @@ const GarageScene = () => {
               distance={200}
               penumbra={1}
               intensity={300}
+              color={"#fdb720"}
             />
           </PerspectiveCamera>
           {/* <GarageEnvironment /> */}
@@ -132,7 +108,7 @@ const GarageScene = () => {
             opacity={1.2}
           />
           <Environment
-            files="/scene.hdr"
+            files="/3D/scene.hdr"
             position={[0, 4, 0]}
             ground={{ height: 35, radius: 100, scale: 150 }}
           />

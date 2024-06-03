@@ -6,6 +6,7 @@ export const NavigationItemStyled = {
     align-items: center;
     justify-content: center;
     padding: 14px 24px;
+    cursor: pointer;
 
     background-color: ${({ theme, $color }) =>
       $color ? theme.color["accent-100"] : theme.color.dark};

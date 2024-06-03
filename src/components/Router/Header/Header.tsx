@@ -3,7 +3,6 @@ import React from "react";
 import { HeaderStyled as Styled } from "./Header.styled";
 import { Icon } from "components/ui/Icon/Icon";
 import { Divider } from "components/ui/Divider/Divider";
-import { useLocation } from "react-router-dom";
 import { HeaderNavigation } from "./HeaderNavigation/HeaderNavigation";
 import { THeaderSection } from "types/header";
 import { HeaderProfile } from "./HeaderProfile/HeaderProfile";
@@ -97,8 +96,6 @@ const sections: THeaderSection[] = [
 ];
 
 export const Header: React.FC = () => {
-  const location = useLocation();
-
   return (
     <>
       <Styled.Container as={"header"}>

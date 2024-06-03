@@ -42,7 +42,7 @@ export const Styled = {
     font-weight: ${({ theme }) => theme.fontWeight.regular};
     color: ${({ theme, error }) =>
       error ? theme.color.red : theme.color.white};
-    background-color: ${({ theme }) => theme.color.primary};
+    background-color: transparent;
     text-transform: uppercase;
 
     &::placeholder {
