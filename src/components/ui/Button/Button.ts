@@ -70,6 +70,7 @@ export const Button = styled.button<IButtonProps>`
   font-size: ${({ theme }) => theme.fontSize.button};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   font-family: ${({ theme }) => theme.fontFamily.condensed};
+
   cursor: pointer;
 
   text-transform: uppercase;

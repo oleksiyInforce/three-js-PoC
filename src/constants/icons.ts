@@ -34,6 +34,11 @@ import discordFooter from "assets/icons/footer/discord-footer.svg";
 import messageFooter from "assets/icons/footer/message-footer.svg";
 import videoFooter from "assets/icons/footer/video-footer.svg";
 
+import googleAuth from "assets/icons/auth/google.svg";
+import mwAuth from "assets/icons/auth/mw.png";
+import wcAuth from "assets/icons/auth/wc.svg";
+import epicAuth from "assets/icons/auth/epic.svg";
+
 export const ICON_MAP = {
   check,
   ffw,
@@ -70,6 +75,11 @@ export const ICON_MAP = {
   discordFooter,
   messageFooter,
   videoFooter,
+
+  googleAuth,
+  mwAuth,
+  wcAuth,
+  epicAuth,
 };
 
 export type TIcon = keyof typeof ICON_MAP;

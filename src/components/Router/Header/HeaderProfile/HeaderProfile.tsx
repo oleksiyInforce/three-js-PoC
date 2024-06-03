@@ -5,11 +5,15 @@ import { ICON_MAP } from "constants/icons";
 import { Typography } from "components/ui/Typography/Typography";
 import { Divider } from "components/ui/Divider/Divider";
 import { Icon } from "components/ui/Icon/Icon";
+import { NavigationItem } from "../HeaderNavigation/NavigationItem/NavigationItem";
+import { useAuth } from "components/Auth/AuthProvider";
 
 export const HeaderProfile: React.FC = () => {
+  const { logout, profile } = useAuth();
+
   return (
     <Styled.Wrapper>
-      <Styled.Avatar src={ICON_MAP["userPic"]} />
+      <Styled.Avatar src={profile ? profile.picture : ICON_MAP["userPic"]} />
       <Styled.Profile>
         <Typography
           fontSize={"xxs"}
@@ -17,7 +21,7 @@ export const HeaderProfile: React.FC = () => {
           fontWeight={"thin"}
           color={"accent-100"}
         >
-          darkewards
+          {profile ? profile.name : "darkewards"}
         </Typography>
         <Typography
           fontSize={"sm"}
@@ -37,10 +41,9 @@ export const HeaderProfile: React.FC = () => {
         #Homebase63
       </Typography>
       <Divider size={24} gap={8} />
-
-      <Icon name="share" />
-      <Icon name="bell" />
-      <Styled.Button size="sm">Invite to garage</Styled.Button>
+      <NavigationItem onClick={logout}>
+        <Icon name="logOut" />
+      </NavigationItem>
     </Styled.Wrapper>
   );
 };
